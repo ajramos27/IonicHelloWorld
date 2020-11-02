@@ -27,8 +27,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'ionic cordova platform add android'
-- task: CordovaBuild@1
+
+- task: CmdLine@2
   inputs:
-    platform: 'android'
-    configuration: 'Release'
-    outputPattern: 'bin'
+    script: 'ionic cordova build android --prod --release'
