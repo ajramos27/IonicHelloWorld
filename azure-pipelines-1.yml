@@ -43,8 +43,9 @@ steps:
     SourceFolder: '$(System.DefaultWorkingDirectory)'
     Contents: '**/outputs/apk/release/app*.apk'
     CleanTargetFolder: true
-    TargetFolder: '$(Build.BinariesDirectory)'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
     flattenFolders: true
+
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact'
   inputs:
