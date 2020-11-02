@@ -36,3 +36,4 @@ steps:
     apkFiles: '**/outputs/apk/release/app*.apk'
     apksignerKeystoreFile: 'my-release-key.jks'
     apksignerKeystorePassword: 'aaron12345'
+    apksignerKeystoreAlias: 'my-alias'
