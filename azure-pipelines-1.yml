@@ -10,17 +10,12 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: NodeTool@0
-  displayName: 'Use Node 6.x'
-  inputs:
-    checkLatest: true
 - task: Npm@1
   inputs:
     command: 'install'
-- task: Npm@1
+- task: CmdLine@2
   inputs:
-    command: 'custom'
-    customCommand: 'install -g @ionic/cli'
+    script: 'npm install -g @ionic/cli'
 - task: Npm@1
   inputs:
     command: 'custom'
