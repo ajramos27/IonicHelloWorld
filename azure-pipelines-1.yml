@@ -37,16 +37,17 @@ steps:
     apksignerKeystoreFile: 'my-release-key.jks'
     apksignerKeystorePassword: 'aaron12345'
     apksignerKeystoreAlias: 'my-alias'
-- task: CopyFiles@2 #Copies all .apk files to publish
-  displayName: 'copy **/outputs/apk/release/app*.apk to $(Build.BinariesDirectory)'
+- task: CopyFiles@2
+  displayName: 'Copy APK file'
   inputs:
     SourceFolder: '$(System.DefaultWorkingDirectory)'
     Contents: '**/outputs/apk/release/app*.apk'
     CleanTargetFolder: true
     TargetFolder: '$(Build.BinariesDirectory)'
     flattenFolders: true
-
-
-- publish: '$(Build.BinariesDirectory)' # Publish artifact
-  artifact: 'android-app'
-  displayName: 'publish artifact'
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'android-app'
+    publishLocation: 'Container'
