@@ -31,3 +31,8 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'ionic cordova build android --prod --release'
+- task: AndroidSigning@3
+  inputs:
+    apkFiles: '**/outputs/apk/release/app*.apk'
+    apksignerKeystoreFile: 'my-release-key.jks'
+    apksignerKeystorePassword: 'aaron12345'
