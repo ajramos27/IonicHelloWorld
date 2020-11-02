@@ -10,9 +10,8 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: NodeTool@0
+- task: UseNode@1
   inputs:
-    versionSpec: 
     checkLatest: true
 - task: Npm@1
   inputs:
