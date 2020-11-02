@@ -11,7 +11,9 @@ pool:
 
 steps:
 - task: NodeTool@0
-  displayName: 'Use Node 6.x'
+  inputs:
+    versionSpec: 
+    checkLatest: true
 - task: Npm@1
   inputs:
     command: 'install'
